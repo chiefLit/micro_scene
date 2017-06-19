@@ -1,0 +1,554 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+body {
+  background: #000;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.ks-hide {
+  display: none;
+}
+.ks-show {
+  display: block !important;
+}
+.audio_btn {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  width: 1.875rem;
+  height: 1.875rem;
+  background: url('../img/music_on.png') center no-repeat;
+  background-size: cover;
+  z-index: 999;
+}
+.rotate {
+  -webkit-animation: rotate 2s linear 0s infinite;
+          animation: rotate 2s linear 0s infinite;
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.pages {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #dedee0;
+}
+.page ul li {
+  position: absolute;
+}
+.page ul li img {
+  width: 100%;
+  height: 100%;
+}
+.page1 .p1_message {
+  width: 10.625rem;
+  height: 8.3125rem;
+  left: 50%;
+  top: 50%;
+  margin-left: -5.3125rem;
+  margin-top: -10.9375rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page1 .p1_words {
+  width: 13.625rem;
+  height: 6.4375rem;
+  left: 50%;
+  top: 50%;
+  margin-left: -6.8125rem;
+  margin-top: 1.5625rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page2 .p2_bg {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.page2 .p2_words {
+  width: 10.75rem;
+  height: 4.25rem;
+  left: 0.6875rem;
+  top: 5.25rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page3 {
+  background: #e9e9e9;
+}
+.page3 .p3_bg {
+  width: 100%;
+  height: 9.59375rem;
+  left: 0;
+  top: 50%;
+  margin-top: 1.5625rem;
+}
+.page3 .p3_words {
+  width: 11.375rem;
+  height: 3.6875rem;
+  left: 50%;
+  top: 50%;
+  margin-left: -5.6875rem;
+  margin-top: -9.375rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page4 {
+  background: #e9e9e9;
+}
+.page4 .p4_ta {
+  width: 3rem;
+  height: 3.0625rem;
+  right: 6.25rem;
+  top: 5.5625rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page4 .p4_words {
+  width: 8.8125rem;
+  height: 2.1875rem;
+  right: 0.625rem;
+  top: 8.125rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page4 .p4_bg {
+  width: 12.875rem;
+  height: 15.8125rem;
+  left: 0;
+  bottom: 6.25rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page5 {
+  background: #e9e9e9;
+}
+.page5 .p5_ta {
+  width: 2.625rem;
+  height: 2.5625rem;
+  left: 1.25rem;
+  top: 6rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page5 .p5_words {
+  width: 7.9375rem;
+  height: 1.875rem;
+  left: 1.25rem;
+  top: 9rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page5 .p5_bg {
+  width: 16.5rem;
+  height: 16rem;
+  right: 0;
+  bottom: 6.25rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page6 .p6_bg {
+  width: 100%;
+  height: 25.75rem;
+  left: 0rem;
+  bottom: 0;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page6 .p6_words {
+  width: 11.3125rem;
+  height: 1.625rem;
+  left: 50%;
+  margin-left: -5.65625rem;
+  top: 3.625rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page7 {
+  background: #e9e9e9;
+}
+.page7 .p7_bg1 {
+  width: 100%;
+  height: 6.65625rem;
+  right: 0rem;
+  top: 50%;
+  margin-top: -6.875rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page7 .p7_bg2 {
+  width: 100%;
+  height: 6.0625rem;
+  left: 0rem;
+  top: 50%;
+  margin-top: 3.125rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page7 .p7_words1 {
+  width: 16.6875rem;
+  height: 1.5625rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -8.34375rem;
+  margin-top: -14.375rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page7 .p7_words2 {
+  width: 10.9375rem;
+  height: 1.9375rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -5.46875rem;
+  margin-top: -11.875rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page7 .p7_words3 {
+  width: 16.9375rem;
+  height: 2.0625rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -8.46875rem;
+  margin-top: -1.03125rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page8 .p8_but {
+  width: 5.6875rem;
+  height: 2.3125rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -2.84375rem;
+  margin-top: -12.5rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page8 .p8_bg {
+  width: 9.8125rem;
+  height: 11.3125rem;
+  left: 50%;
+  top: 50%;
+  margin-left: -4.90625rem;
+  margin-top: -5.03125rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page8 .p8_words {
+  width: 8.5625rem;
+  height: 1.8125rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -4.28125rem;
+  margin-top: -9.375rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page9 {
+  background: #e9e9e9;
+}
+.page9 .p9_bg1 {
+  width: 9.875rem;
+  height: 3.125rem;
+  left: 0;
+  top: 7.1875rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page9 .p9_bg2 {
+  width: 9.375rem;
+  height: 3.5rem;
+  right: 0;
+  top: 7.125rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page9 .p9_words1 {
+  width: 8.9375rem;
+  height: 2.1875rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -4.46875rem;
+  margin-top: 0.3125rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page9 .p9_words2 {
+  width: 12.1875rem;
+  height: 1.5625rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -6.09375rem;
+  margin-top: 3.125rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.page10 {
+  background: #e9e9e9;
+}
+.page10 .p10_bg {
+  width: 100%;
+  height: 9.875rem;
+  left: 0;
+  top: 50%;
+  margin-top: 3.125rem;
+}
+.page10 .p10_words {
+  width: 9rem;
+  height: 3.125rem;
+  left: 50%;
+  margin-left: -4.5rem;
+  top: 6.25rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-direction: both;
+          animation-direction: both;
+}
+.btns {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+}
