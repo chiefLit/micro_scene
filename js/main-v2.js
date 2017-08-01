@@ -151,9 +151,6 @@ Fn.prototype = {
         var _this = this;
         var currPage = $(_this.pages[_this.currIndex]);
         //给每一页设置高度
-        // $(_this.container).css({
-        //     height: _this.pageHeight + 'px'
-        // })
         for (var i = 0; i < _this.pages.length; i++) {
             $(_this.pages[i]).css({
                 height: _this.pageHeight + 'px'
@@ -161,24 +158,22 @@ Fn.prototype = {
         }
         //展示当前页
         $(currPage).show();
+        //绑定touch
         _this.bindTouch();
+        //绑定wheel
         _this.bindWheel();
+        // 重置页面
+        _this.resize();
 
         var timer = null;
         $(window).on("resize", function() {
             clearTimeout(timer);
-            _this.pageHeight = $(window).height();
-            for (var i = 0; i < _this.pages.length; i++) {
-                $(_this.pages[i]).css({
-                    height: _this.pageHeight + 'px'
-                })
-            }
-            _this.moveHeight = - _this.pageHeight * _this.currIndex;
-            // 同时整个页面平移
-            $(_this.container).css3({
-                'transform': 'translate3d(0, ' + _this.moveHeight + 'px, 0)',
-            })
+            // 重置页面
+            _this.resize();
         });
+
+        // 添加动画
+        _this.pageAction(_this.currIndex, 2);
     },
     /**
      * 展示nextPage
@@ -192,11 +187,11 @@ Fn.prototype = {
         var nextPage = $(_this.pages[_this.nextIndex]);
         var currPage = $(_this.pages[_this.currIndex]);
 
-        _this.moveHeight -= delta * _this.pageHeight;
+        // if (_this.touchMoveEffect) {
+        	_this.pageAction(_this.nextIndex, 2);
+        // }
 
-        if (!_this.touchMoveEffect) {
-			_this.pageAction();
-        }
+        _this.moveHeight -= delta * _this.pageHeight;
 
         nextPage.css3({
             'transform': 'translate3d(0, ' + (-delta * _this.pageHeight)  + 'px, 0)',
@@ -204,6 +199,8 @@ Fn.prototype = {
             'z-index': '1'
         })
         setTimeout(function() {
+        	_this.pageAction(_this.currIndex, 1);
+        	_this.pageAction(2 * _this.nextIndex - _this.currIndex, 1);
             //next item 还原
             nextPage.css3({
                 'transform': 'translate3d(0, 0, 0)',
@@ -256,7 +253,7 @@ Fn.prototype = {
                 _this.nextIndex = _this.currIndex - 1;
                 var naxtPage = $(_this.pages[_this.nextIndex]);
                 if (_this.touchMoveEffect) {
-                	_this.pageAction();
+                	_this.pageAction(_this.nextIndex, 2);
                 }
                 naxtPage.css({
                     'transition': 'initial',
@@ -268,7 +265,7 @@ Fn.prototype = {
                 _this.nextIndex = _this.currIndex + 1;
                 var naxtPage = $(_this.pages[_this.nextIndex]);
                 if (_this.touchMoveEffect) {
-                	_this.pageAction();
+                	_this.pageAction(_this.nextIndex, 2);
                 }
                 naxtPage.css({
                     'transition': 'initial',
@@ -375,31 +372,61 @@ Fn.prototype = {
     },
     /**
      * 操作页面动画
+     * @param  pageIndex 操作页面
+     * @param  type      类型1：删除，2：添加
      */
-    pageAction: function() {
+    pageAction: function(pageIndex, type) {
     	var _this = this;
-    	// console.log(_this.nextIndex, _this.currIndex);
-    	// 下一页加动画
-    	var nextPage = $(_this.pages[_this.nextIndex]);
-    	var nextAction = nextPage.find('[animate]');
-    	for (var i = 0; i < nextAction.length; i++) {
-    		var nextAnimates = nextAction.eq(i).attr('animate').split(' ');
-    		for (var j = 0; j < nextAnimates.length; j++) {
-    			nextAction.eq(i).addClass(nextAnimates[j])
+    	var actPage = $(_this.pages[pageIndex]);
+    	var actAction = actPage.find('[animate]');
+    	for (var i = 0; i < actAction.length; i++) {
+    		var animates = actAction.eq(i).attr('animate').split(' ');
+    		for (var j = 0; j < animates.length; j++) {
+    			if (type == 1) {
+	    			actAction.eq(i).removeClass(animates[j])
+    			} else {
+	    			actAction.eq(i).addClass(animates[j])
+    			}
     		}
     	}
-    	// 上一页去动画
-    	var currPage = $(_this.pages[_this.currIndex]);
-    	var currAction = currPage.find('[animate]');
-	    	for (var i = 0; i < currAction.length; i++) { 
-	    		var currAnimates = currAction.eq(i).attr('animate').split(' ');
-	    		var duration = currAction.eq(i).attr('duration') || 500;
-	    		for (var j = 0; j < currAnimates.length; j++) {
-			    	setTimeout(function(){
-		    			currAction.eq(i).removeClass(currAnimates[j])
-			    	}, duration)
-	    		}
-	    	}
+    },
+    /**
+     * 重置页面
+     */
+    resize: function(){
+    	var _this = this,
+    		nWinWidth = $(window).width(),
+            nWinHeight = $(window).height(),
+            STATIC_WIDTH = 320,
+            STATIC_HEIGHT = 568,
+            ratioWidth = nWinWidth / STATIC_WIDTH,
+            ratioHeight = nWinHeight / STATIC_HEIGHT;
+        if (ratioWidth > ratioHeight) {
+            $("html")[0].style["fontSize"] = (ratioHeight * 16) + "px";
+        } else {
+            $("html")[0].style["fontSize"] = (ratioWidth * 16) + "px";
+        }
+        if (nWinWidth / nWinHeight > 0.8) {
+            $(_this.container).css({
+                width: nWinHeight * 0.8
+            });
+        } else {
+            $(_this.container).css({
+                width: '100%'
+            });
+        }
+
+        _this.pageHeight = $(window).height();
+        for (var i = 0; i < _this.pages.length; i++) {
+            $(_this.pages[i]).css({
+                height: _this.pageHeight + 'px'
+            })
+        }
+        _this.moveHeight = - _this.pageHeight * _this.currIndex;
+        // 同时整个页面平移
+        $(_this.container).css3({
+            'transform': 'translate3d(0, ' + _this.moveHeight + 'px, 0)',
+        })
     }
 }
 window.MicroScene = Fn;
